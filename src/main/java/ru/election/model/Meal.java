@@ -1,8 +1,6 @@
 package ru.election.model;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.validator.constraints.Range;
 
@@ -15,10 +13,6 @@ import java.time.LocalDate;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Meal extends NamedEntity {
 
-    @NotBlank
-    @Size(min = 2, max = 100)
-    private String description;
-
     @NotNull
     private LocalDate date;
 
@@ -29,9 +23,8 @@ public class Meal extends NamedEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Restaurant restaurant;
 
-    public Meal(Integer id, String name, String description, LocalDate date, int price) {
+    public Meal(Integer id, String name, LocalDate date, int price) {
         super(id, name);
-        this.description = description;
         this.date = date;
         this.price = price;
     }

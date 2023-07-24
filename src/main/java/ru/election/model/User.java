@@ -21,20 +21,13 @@ public class User extends NamedEntity {
     @Size(max = 50)
     private String password;
 
-    private boolean enabled = true;
-
-    @NotNull
-    private Date registered;
-
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    public User(Integer id, String name, String email, String password, boolean enabled, Date registered, Set<Role> roles) {
+    public User(Integer id, String name, String email, String password, Set<Role> roles) {
         super(id, name);
         this.email = email;
         this.password = password;
-        this.enabled = enabled;
-        this.registered = registered;
         this.roles = roles;
     }
 }
