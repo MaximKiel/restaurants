@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS restaurant;
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS global_seq;
 
-CREATE SEQUENCE global_seq START WITH 100000;
+CREATE SEQUENCE global_seq START WITH 1000000;
 
 CREATE TABLE users
 (
@@ -42,14 +42,14 @@ CREATE TABLE meal
     price          INT       NOT NULL,
     FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX meal_unique_user_date_idx ON meal (restaurant_id, date);
+CREATE UNIQUE INDEX meal_unique_restaurant_name_date_idx ON meal (restaurant_id, name, date);
 
 CREATE TABLE vote
 (
     id             INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     user_id        INTEGER NOT NULL,
     restaurant_id  INTEGER   NOT NULL,
-    date_time   TIMESTAMP NOT NULL,
+    date_time      TIMESTAMP NOT NULL,
     FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
