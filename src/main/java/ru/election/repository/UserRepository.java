@@ -11,7 +11,7 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public interface UserRepository extends BaseRepository<User> {
 
-//    @Query("SELECT u FROM User u WHERE u.id:=id")
+    @Query("SELECT u FROM User u WHERE u.id=:id")
     Optional<User> get(@Param("id") int id);
 
     List<User> getAll();

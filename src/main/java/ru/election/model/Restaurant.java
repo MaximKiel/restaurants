@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "restaurant")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

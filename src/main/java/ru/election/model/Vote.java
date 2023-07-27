@@ -5,9 +5,11 @@ import lombok.AccessLevel;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "vote")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
