@@ -5,13 +5,12 @@ import org.springframework.util.Assert;
 import org.springframework.data.util.ProxyUtils;
 
 import javax.persistence.*;
-import java.beans.Introspector;
 
 @MappedSuperclass
-//@Getter
-//@Setter
-//@NoArgsConstructor(access = AccessLevel.PROTECTED)
-//@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Access(AccessType.FIELD)
 public abstract class BasedEntity {
 
@@ -19,11 +18,7 @@ public abstract class BasedEntity {
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "global_seq")
     protected Integer id;
-    protected BasedEntity() {
-    }
-    protected BasedEntity(Integer id) {
-        this.id = id;
-    }
+
     public int id() {
         Assert.notNull(id, "Entity must have id");
         return id;
