@@ -13,6 +13,9 @@ public interface UserRepository extends BaseRepository<User> {
     @Query("SELECT u FROM User u WHERE u.id=:id")
     User get(@Param("id") int id);
 
-    @Query("SELECT * FROM User u")
+    @Query("SELECT u FROM User u WHERE u.email=:email")
+    User getByEmail(@Param("email") String email);
+
+    @Query("SELECT * FROM User")
     List<User> getAll();
 }

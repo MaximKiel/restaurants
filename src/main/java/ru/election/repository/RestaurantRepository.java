@@ -13,6 +13,6 @@ public interface RestaurantRepository extends BaseRepository<Restaurant> {
     @Query("SELECT r FROM Restaurant r WHERE r.id=:id")
     Restaurant get(@Param("id") int id);
 
-    @Query("SELECT * FROM Restaurant r WHERE r.id=:id")
-    List<Restaurant> getAll(@Param("id") int id);
+    @Query("SELECT * FROM Restaurant")
+    List<Restaurant> getAll();
 }
