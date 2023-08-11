@@ -22,7 +22,7 @@ public class UserService {
         return checkNotFoundWithId(repository.get(id), id);
     }
 
-    public User getWithEmail(String email) {
+    public User getByEmail(String email) {
         Assert.notNull(email, "Email must not be null");
         return checkNotFound(repository.getByEmail(email), "email=" + email);
     }

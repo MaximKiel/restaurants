@@ -23,9 +23,9 @@ public abstract class AbstractUserController {
         return userService.get(id);
     }
 
-    public User getWithEmail(String email) {
-        log.info("getWithEmail {}", email);
-        return userService.getWithEmail(email);
+    public User getByEmail(String email) {
+        log.info("getByEmail {}", email);
+        return userService.getByEmail(email);
     }
 
     public List<User> getAll() {
