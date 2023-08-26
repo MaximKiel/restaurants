@@ -1,0 +1,10 @@
+database.url=
+database.username=
+database.password=
+
+database.init=
+jdbc.initLocation=
+jpa.showSql=
+hibernate.format_sql=
+hibernate.use_sql_comments=
+database.driverClassName=
