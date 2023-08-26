@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+</head>
+<body>
+<div th:each="restaurant : ${restaurants}">
+    <a th:href="@{/admin/restaurants/{id(id=${restaurant.id})}"
+       th:text="${restaurant.getName() + ' - ' + restaurant.getDescription() + ' - ' restaurant.getAddress()}"></a>
+</div>
+</body>
+</html>
